@@ -23,13 +23,14 @@ function generatePassword() {
     pwArray.push(pwCharacter[Math.floor(Math.random() * (Math.floor(72) - Math.ceil(0) + 1))]);
     
   }
-  //pwArray test
-  console.log(pwArray);
+  var pwString = [];
 }
 
 //generatePassword test
 generatePassword();
+//Empty array that will hold the pwArray characters
 var pwString = [];
+//Loop that pushes pushes characters to pwString until the pwLength is reached
 for (var j = 0; j<pwLength; j++) {
   pwString.push(pwArray[j]);
 }
@@ -44,17 +45,10 @@ console.log(pwFull);
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  // variable to assign the pwArray to a single string
-  // var pwString = pwArray[0] + pwArray[1] + pwArray[2] + pwArray[3] + pwArray[4] + pwArray[5] + pwArray[6] + pwArray[7] + pwArray[8] + pwArray[9];
-  
-
-  // pwString test
-  console.log("Password: " + pwString);
 
   //writes pwString to the #password input
-  passwordText.value = pwString;
+  passwordText.value = pwFull;
   
-
 }
 
 // Add event listener to generate button
