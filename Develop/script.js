@@ -29,15 +29,25 @@ function generatePassword() {
 
 //generatePassword test
 generatePassword();
+var pwString = [];
+for (var j = 0; j<pwLength; j++) {
+  pwString.push(pwArray[j]);
+}
+//pwString test
+console.log("pwString Test: " + pwString)
 
+//Turn pwString array into single string
+var pwFull = pwString.join("");
+//pwFull test
+console.log(pwFull);
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   // variable to assign the pwArray to a single string
-  var pwString = pwArray[0] + pwArray[1] + pwArray[2] + pwArray[3] + pwArray[4] + pwArray[5] + pwArray[6] + pwArray[7] + pwArray[8] + pwArray[9];
+  // var pwString = pwArray[0] + pwArray[1] + pwArray[2] + pwArray[3] + pwArray[4] + pwArray[5] + pwArray[6] + pwArray[7] + pwArray[8] + pwArray[9];
   
-  
+
   // pwString test
   console.log("Password: " + pwString);
 
