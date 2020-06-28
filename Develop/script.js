@@ -7,14 +7,20 @@ var pwString = []
 //pw Character test
 console.log(pwCharacter);
 
-// for loop to push 10 random characters to pwString array
-for (var i = 0; i<10; i++) {
-  pwString.push(pwCharacter[Math.floor(Math.random() * (Math.floor(72) - Math.ceil(0) + 1))]);
-  
 
-  // console.log("PW Character: " + pwCharacter[Math.floor(Math.random() * (Math.floor(72) - Math.ceil(0) + 1))]);
+function generatePassword() {
+  // for loop to push 10 random characters to pwString array
+  for (var i = 0; i<10; i++) {
+    //push 10 random characters to pwString array
+    pwString.push(pwCharacter[Math.floor(Math.random() * (Math.floor(72) - Math.ceil(0) + 1))]);
+    
+  }
+  //pwString test
+  console.log(pwString);
 }
-console.log(pwString);
+
+//generatePassword test
+generatePassword();
 
 // Write password to the #password input
 function writePassword() {
