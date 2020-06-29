@@ -11,27 +11,29 @@ var characterSpecial = "!@#$%^&*()".split("");
 
 console.log("LowerCase Character test: " + characterLowerCase.length);
 
-var lowerPrompt = confirm("lower case?");
-var upperPrompt = confirm("upper case?");
-var numberPrompt = confirm("Number?");
-var specialPrompt = confirm("Special character?");
+function chooseCharPrompt() {
+  var lowerPrompt = confirm("Would you like to include lower case letters?");
+  var upperPrompt = confirm("Would you like to include upper case letters?");
+  var numberPrompt = confirm("Would you like to include numbers?");
+  var specialPrompt = confirm("Would you like to include Special Characters?");
+  alert("Please click 'Generate Password' to create your new password!")
 
 
+  if(lowerPrompt === true) {
+    pwCharacter.push(characterLowerCase);
+  }
 
-if(lowerPrompt === true) {
-  pwCharacter.push(characterLowerCase);
-}
+  if(upperPrompt === true) {
+    pwCharacter.push(characterUpperCase);
+  }
 
-if(upperPrompt === true) {
-  pwCharacter.push(characterUpperCase);
-}
+  if(numberPrompt === true) {
+    pwCharacter.push(characterNumber);
+  }
 
-if(numberPrompt === true) {
-  pwCharacter.push(characterNumber);
-}
-
-if(specialPrompt === true) {
-  pwCharacter.push(characterSpecial);
+  if(specialPrompt === true) {
+    pwCharacter.push(characterSpecial);
+  }
 }
 
 // pwArray is an empty arry that will be filled with the for loop
@@ -41,7 +43,7 @@ console.log("pwCharacter test: " + pwCharacter);
 console.log("pwCharacter length test: " + pwCharacter.length);
 
   //Prompt to determine the length of the password
-var pwLength = prompt("How many characters do you want your password to be?");
+var pwLength = prompt("How many characters would you like your password to be?");
 
   //pwLength test
 console.log("Length of Password: " + pwLength);
@@ -60,7 +62,8 @@ function generatePassword() {
     
   }
 }
-
+// Prompt user for password questions
+chooseCharPrompt();
 //generatePassword test
 generatePassword();
 //Empty array that will hold the pwArray characters
