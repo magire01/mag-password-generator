@@ -8,7 +8,7 @@
 
 <p> The characters are generated randomly. There is a defect where there is no requirement to include a character type just because the user selected it. </p>
 
-<img href=/Assets/screenshot.png>
+<img href=./Assets/screenshot.png />
 
 <br> 
 <br>
