@@ -1,50 +1,64 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// pwCharacter is an array with all possible password character options
 
-// pwCharacter is an array with the selected password character options
 var pwCharacter = [];
 
-//generate groups of arrays for lowercase uppercase numbers and special characters
-var characterLower = "abcdefghijklmnopqrstuvwxyz".split("");
-var characterUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var characterLowerCase = "abcdeftghijklmnopqrstuvwxyz".split("");
+var characterUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var characterNumber = "1234567890".split("");
-var characterSpecial ="!@#$%^&*()-+=}{~?><".split("");
+var characterSpecial = "!@#$%^&*()".split("");
 
-//create prompts for each group of character
-var lowerPrompt = confirm("Include Lower Case Letters?");
-var upperPrompt = confirm("Include Upper Case Letters?");
-var numberPrompt = confirm("Include Numbers?");
-var specialPrompt = confirm("Include Special Characters?");
+console.log("LowerCase Character test: " + characterLowerCase.length);
 
-// Create if statement to push character types to the pwCharacter variable
-if (lowerPrompt == true) {
-  pwCharacter.push(characterLower);
+var lowerPrompt = confirm("lower case?");
+var upperPrompt = confirm("upper case?");
+var numberPrompt = confirm("Number?");
+var specialPrompt = confirm("Special character?");
+
+
+
+if(lowerPrompt === true) {
+  pwCharacter.push(characterLowerCase);
 }
 
-// Character test
-console.log("Character test: " + pwCharacter);
+if(upperPrompt === true) {
+  pwCharacter.push(characterUpperCase);
+}
+
+if(numberPrompt === true) {
+  pwCharacter.push(characterNumber);
+}
+
+if(specialPrompt === true) {
+  pwCharacter.push(characterSpecial);
+}
 
 // pwArray is an empty arry that will be filled with the for loop
 var pwArray = []
 //pw Character test
-console.log(pwCharacter);
+console.log("pwCharacter test: " + pwCharacter);
+console.log("pwCharacter length test: " + pwCharacter.length);
 
-//Password Criteria
   //Prompt to determine the length of the password
 var pwLength = prompt("How many characters do you want your password to be?");
 
   //pwLength test
 console.log("Length of Password: " + pwLength);
 
+  //pwLength
 
 function generatePassword() {
-  // for loop to push <pwLength> random characters to pwArray
+  // for loop to push 10 random characters to pwArray
   for (var i = 0; i<pwLength; i++) {
-    //push 10 random characters to pwString array
-    pwArray.push(pwCharacter[Math.floor(Math.random() * (Math.floor(72) - Math.ceil(0) + 1))]);
+    //Select random character type
+    var characterSelection = pwCharacter[Math.floor(Math.random() * pwCharacter.length)];
+    //Character Selection test
+    console.log("CharacterSelection test: " + characterSelection);
+    //Push the random characters into pwArray
+    pwArray.push(characterSelection[Math.floor(Math.random() * characterSelection.length - 1)]);
     
   }
-  var pwString = [];
 }
 
 //generatePassword test
@@ -56,21 +70,24 @@ for (var j = 0; j<pwLength; j++) {
   pwString.push(pwArray[j]);
 }
 //pwString test
-console.log("pwString Test: " + pwString)
+console.log("pwString Test: " + pwString);
 
 //Turn pwString array into single string
 var pwFull = pwString.join("");
+
 //pwFull test
-console.log("pwFull Test: " + pwFull);
+console.log("pwFull test: " + pwFull);
+
 // Write password to the #password input
 function writePassword() {
-
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   //writes pwString to the #password input
   passwordText.value = pwFull;
   
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
